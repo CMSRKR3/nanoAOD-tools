@@ -79,7 +79,7 @@ class collectionSkimmer(Module):
 
         # add variables from other collections
         if self.importedVariables != "None":
-          cols = [ (Collection(event, (var.split("_"))[0] ), (var.split("_"))[1], i )  for i,var in enumerate(self.importedVariables) ]
+          cols = [ (Collection(event, (var.split("_"))[0] ), (var.split("_",1))[1], i )  for i,var in enumerate(self.importedVariables) ]
           for col, var, ivar in cols:
             varname = self.varnames[ivar]
             idx = self.importIds[ivar]

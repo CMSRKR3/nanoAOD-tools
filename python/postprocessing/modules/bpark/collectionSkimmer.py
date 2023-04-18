@@ -65,7 +65,7 @@ class collectionSkimmer(Module):
 
     def filterBranchNames(self,branches,collection):
         out = []
-        for br in c:
+        for br in branches:
             name = br.GetName()
             if not name.startswith(collection+'_'): continue
             out.append(name.replace(collection+'_',''))

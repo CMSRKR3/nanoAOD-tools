@@ -65,7 +65,7 @@ class collectionSkimmer(Module):
 
     def filterBranchNames(self,branches,collection):
         out = []
-        for br in branches:
+        for br in c:
             name = br.GetName()
             if not name.startswith(collection+'_'): continue
             out.append(name.replace(collection+'_',''))
@@ -79,7 +79,7 @@ class collectionSkimmer(Module):
 
         # add variables from other collections
         if self.importedVariables != "None":
-          cols = [ (Collection(event, (var.split("_"))[0] ), (var.split("_"))[1], i )  for i,var in enumerate(self.importedVariables) ]
+          cols = [ (Collection(event, (var.split("_"))[0] ), var[var.find("_")+1:] , i )  for i,var in enumerate(self.importedVariables) ]
           for col, var, ivar in cols:
             varname = self.varnames[ivar]
             idx = self.importIds[ivar]
